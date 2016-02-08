@@ -18,6 +18,11 @@ module AgentApp
       entities.empty?
     end
 
+    def clear
+      self._entities = nil
+      @_entity_map = nil
+    end
+
     private
 
     def entities

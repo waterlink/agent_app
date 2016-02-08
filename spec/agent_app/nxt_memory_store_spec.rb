@@ -16,5 +16,12 @@ module AgentApp
       expect(m.fetch).to eq(other)
       expect(m.fetch).to eq(other)
     end
+
+    it "can be cleared" do
+      m = NxtMemoryStore.new
+      m.store(32)
+      m.clear
+      expect(m.fetch).to eq(nil)
+    end
   end
 end

@@ -11,5 +11,9 @@ module AgentApp
     def store(nxt)
       @nxt = nxt
     end
+
+    def clear
+      store(nil)
+    end
   end
 end

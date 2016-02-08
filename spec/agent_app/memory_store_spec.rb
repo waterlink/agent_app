@@ -43,5 +43,11 @@ module AgentApp
       expect(MemoryStore.new([])).to be_empty
       expect(MemoryStore.new([a, b])).not_to be_empty
     end
+
+    it "is possible to clear it" do
+      m = MemoryStore.new([a, b])
+      m.clear
+      expect(m).to eq(MemoryStore.new)
+    end
   end
 end
