@@ -8,14 +8,17 @@ module AgentApp
     end
 
     def call
-      nxt = source.fetch_next(nxt_store.fetch) do |e|
-        store.add(e)
-      end
-      nxt_store.store(nxt)
+      nxt_store.store(fetch_next)
     end
 
     private
 
     attr_reader :source, :store, :nxt_store
+
+    def fetch_next
+      source.fetch_next(nxt_store.fetch) do |e|
+        store.add(e)
+      end
+    end
   end
 end
