@@ -40,7 +40,6 @@ notify() {
 
 watch lib spec \
   | while read change; do
-    echo $change
     rspec --no-color > .watch.out
     res=$?
     committed=
