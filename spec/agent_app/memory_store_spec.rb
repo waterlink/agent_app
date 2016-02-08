@@ -2,8 +2,8 @@ require "agent_app/memory_store"
 
 module AgentApp
   RSpec.describe MemoryStore do
-    let(:a) { Entity.new(double("Data"), id: 1) }
-    let(:b) { Entity.new(double("Data"), id: 2) }
+    let(:a) { Entity.new(double("Data"), id: 1, type: "Asset") }
+    let(:b) { Entity.new(double("Data"), id: 2, type: "Link") }
 
     it "can be created" do
       expect(MemoryStore.new)
@@ -14,6 +14,13 @@ module AgentApp
       expect(MemoryStore.new([]).all).to eq([])
       expect(MemoryStore.new.all).to eq([])
       expect(MemoryStore.new([a, b]).all).to eq([a, b])
+    end
+
+    it "is possible to fetch only type=Entry entities" do
+      c = Entity.new(double("Data"), id: 3, type: "Entry")
+      d = Entity.new(double("Data"), id: 4, type: "Entry")
+
+      expect(MemoryStore.new([a, b, c, d]).entries).to eq([c, d])
     end
 
     it "is possible to save entities" do

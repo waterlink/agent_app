@@ -1,5 +1,7 @@
 module AgentApp
   class MemoryStore < Struct.new(:_entities)
+    ENTRY_TYPE = "Entry"
+
     def ==(other)
       return false unless other.is_a?(MemoryStore)
       self.all == other.all
@@ -7,6 +9,11 @@ module AgentApp
 
     def all
       entities
+    end
+
+    def entries
+      entities
+        .select { |e| e.type == ENTRY_TYPE }
     end
 
     def add(e)

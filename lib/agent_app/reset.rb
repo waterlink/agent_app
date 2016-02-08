@@ -1,4 +1,5 @@
 module AgentApp
+  # job: Reset represents a use case for clearing all stored data
   class Reset
     def initialize(store, nxt_store)
       @store = store
