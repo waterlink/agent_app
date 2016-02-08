@@ -6,11 +6,11 @@ Cache application for agents, that will be mostly offline.
 
 ![Architecture](http://g.gravizo.com/g?
   digraph G {
-    DOMAIN -> {DataStore DataSource Request Response}
-    InputController -> Request
-    Presenter -> Response
-    {MemoryStore FileStore} -> DataStore
-    {MemorySource APISource} -> DataSource
+    "DOMAIN[Interactors]" -> {DataStores DataSources Requests Responses}
+    InputControllers -> Requests
+    Presenters -> Responses
+    {MemoryStore FileStore} -> DataStores
+    {MemorySource APISource} -> DataSources
   }
 )
 
