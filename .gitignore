@@ -7,3 +7,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+/.watch.out
+/.change-count
+/.spec_examples.txt
