@@ -4,9 +4,9 @@ require "agent_app/entity"
 module AgentApp
   module Cf
     RSpec.describe Source do
-      let(:endpoint) { ENV.fetch("CF_SOURCE_ENDPOINT") }
-      let(:space_id) { ENV.fetch("CF_SOURCE_SPACE_ID") }
-      let(:token) { ENV.fetch("CF_SOURCE_TOKEN") }
+      let(:endpoint) { "https://example.com" }
+      let(:space_id) { "some_space" }
+      let(:token) { "some_token" }
       let(:type) { "all" }
 
       let(:url) { "#{endpoint}/spaces/#{space_id}/sync?access_token=#{token}&initial=true&type=#{type}" }
