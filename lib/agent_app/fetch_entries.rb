@@ -1,3 +1,5 @@
+require "agent_app/entries_response"
+
 module AgentApp
   # job: FetchEntries represents a use case for obtaining entities of type
   # Entry

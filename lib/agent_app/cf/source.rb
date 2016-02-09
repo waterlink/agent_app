@@ -1,4 +1,7 @@
 require "net/http"
+require "json"
+
+require "agent_app/entity"
 
 module AgentApp
   module Cf
