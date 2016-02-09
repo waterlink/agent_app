@@ -1,6 +1,7 @@
 require "agent_app/reset"
 require "agent_app/memory_store"
 require "agent_app/nxt_memory_store"
+require "agent_app/entity"
 
 module AgentApp
   RSpec.describe Reset do

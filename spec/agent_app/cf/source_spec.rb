@@ -1,5 +1,5 @@
 require "agent_app/cf/source"
-require "json"
+require "agent_app/entity"
 
 module AgentApp
   module Cf

@@ -1,4 +1,5 @@
 require "agent_app/memory_store"
+require "agent_app/entity"
 
 module AgentApp
   RSpec.describe MemoryStore do

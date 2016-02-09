@@ -1,6 +1,8 @@
 require "agent_app/initial_sync"
 require "agent_app/memory_source"
 require "agent_app/memory_store"
+require "agent_app/nxt_memory_store"
+require "agent_app/entity"
 
 module AgentApp
   RSpec.describe InitialSync do

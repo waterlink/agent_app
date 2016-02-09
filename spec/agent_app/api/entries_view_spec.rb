@@ -1,4 +1,5 @@
 require "agent_app/api/entries_view"
+require "agent_app/entity"
 require "agent_app/entries_response"
 
 module AgentApp

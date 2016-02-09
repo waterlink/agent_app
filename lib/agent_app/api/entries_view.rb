@@ -1,3 +1,5 @@
+require "json"
+
 module AgentApp
   module Api
     class EntriesView

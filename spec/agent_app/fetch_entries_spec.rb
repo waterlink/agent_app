@@ -1,6 +1,7 @@
 require "agent_app/fetch_entries"
 require "agent_app/memory_store"
 require "agent_app/entries_response"
+require "agent_app/entity"
 
 module AgentApp
   RSpec.describe FetchEntries do
