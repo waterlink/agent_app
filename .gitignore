@@ -11,3 +11,5 @@
 /.watch.out
 /.change-count
 /.spec_examples.txt
+
+/.env
