@@ -1,1 +1,33 @@
+#!/usr/bin/env ruby
+
+require "sinatra"
+require "thin"
+set :server, "thin"
+
 require "agent_app/api/server"
+
+require "agent_app/memory_store"
+require "agent_app/nxt_memory_store"
+require "agent_app/cf/source"
+require "agent_app/initial_sync"
+require "agent_app/incremental_sync"
+require "agent_app/reset"
+require "agent_app/fetch_entries"
+
+endpoint = ENV.fetch("CF_SOURCE_ENDPOINT")
+space_id = ENV.fetch("CF_SOURCE_SPACE_ID")
+token = ENV.fetch("CF_SOURCE_TOKEN")
+
+source = AgentApp::Cf::Source.new(endpoint, space_id, token, "all")
+store = AgentApp::MemoryStore.new
+nxt_store = AgentApp::NxtMemoryStore.new
+
+initial_sync = AgentApp::InitialSync.new(source, store, nxt_store)
+incremental_sync = AgentApp::IncrementalSync.new(source, store, nxt_store)
+reset = AgentApp::Reset.new(store, nxt_store)
+fetch_entries = AgentApp::FetchEntries.new(store)
+
+use AgentApp::Api::Server,
+  incremental_sync, reset, initial_sync, fetch_entries
+
+Sinatra::Application.run!
