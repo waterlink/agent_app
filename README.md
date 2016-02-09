@@ -20,7 +20,7 @@ Cache application for agents, that will be mostly offline.
 
 ## Usage
 
-    $ agent_app --space=<space name> --token=<access token>
+    $ agent_app --endpoint=<api endpoint> --space=<space name> --token=<access token>
 
 ## Development
 
